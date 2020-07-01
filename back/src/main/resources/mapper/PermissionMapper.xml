@@ -41,4 +41,56 @@
         FROM sys_permission p
         ORDER BY p.id
     </select>
+
+    <select id="countPermission" resultType="Integer">
+        SELECT count(0)
+        FROM sys_permission
+    </select>
+
+    <select id="listPermission" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+            p.id                  id,
+            p.menu_code           menuCode,
+            p.menu_name           menuName,
+            p.permission_code     permissionCode,
+            p.permission_name     permissionName,
+            p.required_permission requiredPermission
+        FROM sys_permission p
+        LIMIT #{offSet}, #{pageRow}
+    </select>
+
+    <insert id="insertPermission">
+        INSERT INTO sys_permission(id,menu_code,menu_name,permission_code,permission_name,required_permission)
+        VALUES(#{id},#{menuCode},#{menuName},#{permissionCode},#{permissionName},#{requiredPermission})
+    </insert>
+
+    <update id="updatePermission">
+        UPDATE sys_permission
+        <set>
+            <if test="menuCode != null and menuCode != ''">menu_code=#{menuCode},</if>
+            <if test="menuName != null and menuName != ''">menu_name=#{menuName},</if>
+            <if test="permissionCode != null and permissionCode != ''">permission_code=#{permissionCode},</if>
+            <if test="permissionName != null and permissionName != ''">permission_name=#{permissionName},</if>
+            <if test="requiredPermission != null and requiredPermission != ''">
+                required_permission=#{requiredPermission},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="getRolePermissionsByPermissionId" parameterType="java.lang.Integer"
+            resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+            id,
+            role_id roleId,
+            permission_id permissionId
+        FROM sys_role_permission
+        WHERE permission_id = #{permissionId} AND delete_status = '1'
+    </select>
+
+    <delete id="deletePermission" parameterType="java.lang.Integer">
+        DELETE FROM sys_permission
+        WHERE id = #{id}
+    </delete>
+
 </mapper>

@@ -59,6 +59,13 @@ export const asyncRouterMap = [
         meta: {title: '权限管理', icon: 'password'},
         menu: 'role'
       },
+      {
+        path: 'permission',
+        name: '权限管理',
+        component: _import('user/permission'),
+        meta: {title: '权限管理', icon: 'tree'},
+        menu: 'permission'
+      }
     ]
   },
   {path: '*', redirect: '/404', hidden: true}

@@ -35,7 +35,7 @@ CREATE TABLE `sys_permission` (
   `menu_name` varchar(255) DEFAULT '' COMMENT '菜单的中文释义',
   `permission_code` varchar(255) DEFAULT '' COMMENT '权限的代码/通配符,对应代码中@RequiresPermissions 的value',
   `permission_name` varchar(255) DEFAULT '' COMMENT '本权限的中文释义',
-  `required_permission` tinyint(1) DEFAULT '2' COMMENT '是否本菜单必选权限, 1.必选 2非必选 通常是"列表"权限是必选',
+  `required_permission` int(1) DEFAULT '2' COMMENT '是否本菜单必选权限, 1.必选 2非必选 通常是"列表"权限是必选',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='后台权限表';
 
@@ -43,7 +43,7 @@ CREATE TABLE `sys_permission` (
 # Data for table "sys_permission"
 #
 
-INSERT INTO `sys_permission` VALUES (101,'article','文章管理','article:list','列表',1),(102,'article','文章管理','article:add','新增',2),(103,'article','文章管理','article:update','修改',2),(601,'user','用户','user:list','列表',1),(602,'user','用户','user:add','新增',2),(603,'user','用户','user:update','修改',2),(701,'role','角色权限','role:list','列表',1),(702,'role','角色权限','role:add','新增',2),(703,'role','角色权限','role:update','修改',2),(704,'role','角色权限','role:delete','删除',2);
+INSERTINTO`sys_permission`(`id`,`menu_code`,`menu_name`,`permission_code`,`permission_name`,`required_permission`)VALUES(101,'article','文章管理','article:list','列表',1),(102,'article','文章管理','article:add','新增',2),(103,'article','文章管理','article:update','修改',2),(601,'user','用户','user:list','列表',1),(602,'user','用户','user:add','新增',2),(603,'user','用户','user:update','修改',2),(701,'role','角色权限','role:list','列表',1),(702,'role','角色权限','role:add','新增',2),(703,'role','角色权限','role:update','修改',2),(704,'role','角色权限','role:delete','删除',2),(801,'permission','权限管理','permission:list','列表',1),(802,'permission','权限管理','permission:add','新增',2),(803,'permission','权限管理','permission:update','修改',2),(804,'permission','权限管理','permission:delete','删除',2);
 
 #
 # Structure for table "sys_role"
