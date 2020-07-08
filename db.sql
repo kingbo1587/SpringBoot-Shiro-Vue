@@ -43,7 +43,7 @@ CREATE TABLE `sys_permission` (
 # Data for table "sys_permission"
 #
 
-INSERTINTO`sys_permission`(`id`,`menu_code`,`menu_name`,`permission_code`,`permission_name`,`required_permission`)VALUES(101,'article','文章管理','article:list','列表',1),(102,'article','文章管理','article:add','新增',2),(103,'article','文章管理','article:update','修改',2),(601,'user','用户','user:list','列表',1),(602,'user','用户','user:add','新增',2),(603,'user','用户','user:update','修改',2),(701,'role','角色权限','role:list','列表',1),(702,'role','角色权限','role:add','新增',2),(703,'role','角色权限','role:update','修改',2),(704,'role','角色权限','role:delete','删除',2),(801,'permission','权限管理','permission:list','列表',1),(802,'permission','权限管理','permission:add','新增',2),(803,'permission','权限管理','permission:update','修改',2),(804,'permission','权限管理','permission:delete','删除',2);
+INSERT INTO`sys_permission`(`id`,`menu_code`,`menu_name`,`permission_code`,`permission_name`,`required_permission`)VALUES(101,'article','文章管理','article:list','列表',1),(102,'article','文章管理','article:add','新增',2),(103,'article','文章管理','article:update','修改',2),(601,'user','用户','user:list','列表',1),(602,'user','用户','user:add','新增',2),(603,'user','用户','user:update','修改',2),(701,'role','角色权限','role:list','列表',1),(702,'role','角色权限','role:add','新增',2),(703,'role','角色权限','role:update','修改',2),(704,'role','角色权限','role:delete','删除',2),(801,'permission','权限管理','permission:list','列表',1),(802,'permission','权限管理','permission:add','新增',2),(803,'permission','权限管理','permission:update','修改',2),(804,'permission','权限管理','permission:delete','删除',2);
 
 #
 # Structure for table "sys_role"
